@@ -82,6 +82,24 @@ final class StorageManager {
         viewContext.delete(film)
         saveContext()
     }
+    
+    func checkIfItemExist(id: Int) -> Bool {
+        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "Film")
+        fetchRequest.fetchLimit =  1
+        fetchRequest.predicate = NSPredicate(format: "id == %d" ,id)
+
+        do {
+            let count = try viewContext.count(for: fetchRequest)
+            if count > 0 {
+                return true
+            }else {
+                return false
+            }
+        }catch let error as NSError {
+            print("Could not fetch. \(error), \(error.userInfo)")
+            return false
+        }
+    }
 
     
     // MARK: - Core Data Saving support
@@ -112,9 +130,11 @@ final class StorageManager {
     }
     
     // MARK: - Fetching Data From Database
-    func fetchData(predicate: NSPredicate, completion: (Result<[Film], Error>) -> Void) {
+    func fetchData(predicate: NSPredicate? = nil, completion: (Result<[Film], Error>) -> Void) {
         let fetchRequest = Film.fetchRequest()
-        fetchRequest.predicate = predicate
+        if let predicate = predicate {
+            fetchRequest.predicate = predicate
+        }
         do {
             let movies = try viewContext.fetch(fetchRequest)
             completion(.success(movies))
@@ -133,6 +153,20 @@ final class StorageManager {
             print(error)
         }
         return []
+    }
+    
+    func fetchSearchResults(predicate: NSPredicate? = nil) -> Film? {
+        let fetchRequest = Film.fetchRequest()
+        fetchRequest.fetchLimit =  1
+        if let predicate = predicate {
+            fetchRequest.predicate = predicate
+        }
+        do {
+            let movies = try viewContext.fetch(fetchRequest)
+            return movies.first
+        } catch let error {
+            return nil
+        }
     }
     
     // MARK: - Categories of KPLists
