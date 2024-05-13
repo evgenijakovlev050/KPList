@@ -31,8 +31,6 @@ final class HomeInfoViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = #colorLiteral(red: 0.968627451, green: 0.9725490196, blue: 0.9921568627, alpha: 1)
-        var int = [1,2,2,3,3,4,5]
-        removeDuplicates(&int)
         setupNavigationBar()
         setupSearchController()
         setupCollectionView()
@@ -46,17 +44,6 @@ final class HomeInfoViewController: UIViewController {
             presenter.updateFavoriteMovies()
         }
     }
-    
-    func removeDuplicates(_ nums: inout [Int]) -> Int {
-            var i = 0
-            for num in nums {
-                if num != nums[i] {
-                    nums[i + 1] = num
-                    i += 1
-                }
-            }
-            return i + 1
-        }
 }
 
 // MARK: - Extensions - Private Methodds
