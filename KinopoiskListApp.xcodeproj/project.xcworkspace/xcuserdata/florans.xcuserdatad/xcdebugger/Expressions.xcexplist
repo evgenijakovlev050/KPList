@@ -161,6 +161,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "HomeInfoViewController.viewWillAppear(_:):HomeInfoViewController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "UserDefaults.standard.bool(forKey: &quot;wasAnyStatusChanged&quot;) ">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "MoviesByKPListViewController.reloadHeader(with:):MoviesByKPListViewController.swift">
       </ContextState>
       <ContextState
@@ -172,10 +180,13 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "HomeInfoViewController.viewWillAppear(_:):HomeInfoViewController.swift">
+         contextName = "HomeInfoViewController.removeDuplicates(_:):HomeInfoViewController.swift">
          <PersistentStrings>
             <PersistentString
-               value = "UserDefaults.standard.bool(forKey: &quot;wasAnyStatusChanged&quot;) ">
+               value = "nums[i]">
+            </PersistentString>
+            <PersistentString
+               value = "nums[i+1]">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

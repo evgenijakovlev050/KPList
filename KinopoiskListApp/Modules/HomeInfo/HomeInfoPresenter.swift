@@ -85,6 +85,7 @@ extension HomeInfoPresenter: HomeInfoInteractorOutputProtocol {
     
     func favoritesDidUpdate(with movies: [Film]) {
         section.movieItems.removeAll()
+        
         if !movies.isEmpty {
             movies.forEach { movie in
                 section.movieItems.append(CellViewModel(film: movie))

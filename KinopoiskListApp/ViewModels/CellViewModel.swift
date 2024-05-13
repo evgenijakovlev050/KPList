@@ -7,7 +7,7 @@
 
 import Foundation
 
-protocol CellViewModelProtocol: AnyObject {
+protocol CellViewModelProtocol {
     var cellItemName: String { get }
     var imageUrl: String? { get }
     var id: Int { get }
