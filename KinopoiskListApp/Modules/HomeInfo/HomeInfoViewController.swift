@@ -281,7 +281,9 @@ extension HomeInfoViewController: HomeInfoViewInputProtocol {
     func reloadDataAfterFavoritesUpdate(section: SectionViewModel) {
         sectionViewModel = section
         if collectionView.numberOfSections == 3 {
-            collectionView.insertSections(.init(integer: 3))
+            if !sectionViewModel.movieItems.isEmpty {
+                collectionView.insertSections(.init(integer: 3))
+            }
         } else {
             if sectionViewModel.movieItems.isEmpty {
                 collectionView.deleteSections(.init(integer: 3))

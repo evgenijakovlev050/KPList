@@ -47,12 +47,6 @@ final class SearchInteractor: PresenterToInteractorSearchProtocol {
             searchType: MovieServerModel.searchType,
             parameters: [
                 "limit": ["30"],
-//                "selectFields": [
-//                    "id", "name", "enName", "poster",
-//                    "year","genres", "countries",
-//                    "watchability"
-//                ],
-//                "notNullFields": ["poster.url"],
                 "query" : [title]
             ]
         ) { [unowned self] result in

@@ -6,10 +6,7 @@
 //  
 //
 
-import Foundation
-import UIKit
-
-class SearchRouter: PresenterToRouterSearchProtocol {
+final class SearchRouter: PresenterToRouterSearchProtocol {
     private unowned let view: SearchViewController
 
     required init(with view: SearchViewController) {

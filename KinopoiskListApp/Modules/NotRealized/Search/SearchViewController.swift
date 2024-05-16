@@ -18,10 +18,6 @@ final class SearchViewController: UITableViewController {
         tableView.register(MovieTableViewCell.self)
         tableView.rowHeight = 100
     }
-    
-//    override func viewWillDisappear(_ animated: Bool) {
-//        <#code#>
-//    }
 }
 
 // MARK: - Extensions - ViewToPresenterSearchProtocol
@@ -69,12 +65,6 @@ extension SearchViewController: UISearchBarDelegate, UISearchResultsUpdating {
             sectionViewModel.movieItems.removeAll()
             tableView.reloadData()
         }
-    }
-    
-    func searchBarShouldBeginEditing(_ searchBar: UISearchBar) -> Bool {
-        print("search beagn")
-        //presenter.searchStarted(with: "")
-        return true
     }
 }
 

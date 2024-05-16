@@ -7,6 +7,7 @@
 import UIKit
 
 extension Date {
+    /// Getting Current Year
     func formatString() -> String {
         let formatter = DateFormatter()
         formatter.dateFormat = "MM"

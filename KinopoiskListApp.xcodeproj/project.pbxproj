@@ -149,11 +149,11 @@
 			isa = PBXGroup;
 			children = (
 				4A2432D02BDFC7F400BC1872 /* SearchViewController.swift */,
+				4AA7E0F42BF61AC4005455B1 /* SearchInteractor.swift */,
 				4AA7E0FB2BF61B11005455B1 /* SearchPresenter.swift */,
 				4AA7E0FA2BF61B11005455B1 /* SearchRouter.swift */,
 				4AA7E0F72BF61AF3005455B1 /* SearchConfigurator.swift */,
 				4AA7E0F62BF61AF3005455B1 /* SearchContract.swift */,
-				4AA7E0F42BF61AC4005455B1 /* SearchInteractor.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";

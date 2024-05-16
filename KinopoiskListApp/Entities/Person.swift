@@ -17,14 +17,17 @@ struct Person: ResponseType {
     let profession: [ProfessionOrFact]
     let facts: [ProfessionOrFact]
     
+    /// Getting The Age In Russian Locale
     var ageInRU: String {
         age.years()
     }
     
+    /// Getting The Full Name
     var fullName: String {
         return name.replacingOccurrences(of: " ", with: "\n")
     }
     
+    /// Getting All Professions With Single String
     var allProfs: String {
         let profs = profession.map { prof in
             return prof.value
@@ -32,18 +35,21 @@ struct Person: ResponseType {
         return profs.prefix(3).joined(separator: ", ")
     }
     
+    /// Converting The Birthday From String To Date
     var dateBirth: Date {
         let formatter = DateFormatter()
         formatter.dateFormat = "YY-MM-dd"
         return formatter.date(from: String(birthday.prefix(10))) ?? Date()
     }
     
+    /// Getting The Month Of Full Birthday Date
     var stringBirth: String {
         let startIndex = birthday.index(birthday.startIndex, offsetBy: 5)
         let endIndex =  birthday.index(birthday.startIndex, offsetBy: 6)
         return String(birthday[startIndex...endIndex])
     }
     
+    /// Converting Birthday To Russian Locale
     var birthRU: String {
         let dateFormatter = DateFormatter()
         dateFormatter.locale = Locale(identifier: "ru_RU")
@@ -52,10 +58,12 @@ struct Person: ResponseType {
         return stringDate
     }
     
+    /// Check whether a person has birthday this month
     var thisMonthBirth: Bool {
         stringBirth == Date().formatString() && death == nil
     }
     
+    /// Type For Network Requests Performing
     static var type = "person"
     
     enum CodingKeys: CodingKey {
@@ -75,6 +83,7 @@ struct Person: ResponseType {
         case decoding(String)
     }
     
+    // MARK: - Initialization
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decode(Int.self, forKey: .id)

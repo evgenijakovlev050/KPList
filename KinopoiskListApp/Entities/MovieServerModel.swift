@@ -14,15 +14,19 @@ struct MovieServerModel: ResponseType {
     let countries: [GenreOrCountryOrCinemaPlatform]
     let watchability: Watchability?
     
+    /// Networking Types
     static var type = "movie"
     static var searchType = "/search"
+    
+    /// StorageManager Singleton Instance
     static let database = StorageManager.shared
     
+    /// Getting Single String Of Countries And Genres
     var countriesAndGenresString: String {
         return "\(convertArrayToString(from: countries)) - \(convertArrayToString(from: genres))"
     }
     
-    // Determine either movie is enabled to watch on KP
+    /// Determine whether movie is enabled to watch on KP
     var isOnline: Bool {
         guard let watchability = watchability else { return false }
         return !watchability.items.filter { $0.name == "Kinopoisk HD" }
@@ -39,6 +43,7 @@ struct MovieServerModel: ResponseType {
         case watchability
     }
     
+    // MARK: - Initialization
     init(from decoder: Decoder) throws {
         let container = try decoder.container(keyedBy: CodingKeys.self)
         self.id = try container.decode(Int.self, forKey: .id)
@@ -54,12 +59,13 @@ struct MovieServerModel: ResponseType {
         self.watchability = try container.decodeIfPresent(Watchability.self, forKey: .watchability)
     }
     
+    /// Converting Genres, Countries, Cinemas To Single String
     func convertArrayToString(from array: [GenreOrCountryOrCinemaPlatform]) -> String {
         array.map { $0.name }
             .joined(separator: ", ")
     }
     
-    // Core Data Usage
+    /// Core Data Storing
     func store(with kpListSlug: String = "", personId: Int? = nil, title: String = "") {
         guard let film = MovieServerModel.database.add(Film.self) else { return }
         film.id = Int64(id)
@@ -73,7 +79,6 @@ struct MovieServerModel: ResponseType {
         film.searchTitle = title
         film.isWatched = false
         film.isFavorite = true
-        film.searchTitles = ["cdscs"]
         if let personId = personId {
             film.personId = Int64(personId)
         }
