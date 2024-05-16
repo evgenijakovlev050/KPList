@@ -76,9 +76,9 @@ final class CellViewModel: CellViewModelProtocol {
         } else if let kpList = kpList {
             return kpList.cover.url
         } else if let film = film {
-            return film.poster ?? ""
+            return film.poster
         }
-        return ""
+        return nil
     }
     
     init(

@@ -23,7 +23,7 @@ final class PersonDetailInteractor: PresenterToInteractorPersonDetailProtocol {
             type: MovieServerModel.self,
             parameters: [
                 "limit": ["20"],
-                "notNullFields": ["name", "poster.url"],
+                "notNullFields": ["name", "poster.url", "year"],
                 "persons.id" : ["\(person.id)"]
             ]
         ) { [weak self] result in

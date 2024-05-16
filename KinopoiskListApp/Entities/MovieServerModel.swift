@@ -8,7 +8,7 @@
 struct MovieServerModel: ResponseType {
     let id: Int
     let name: String
-    let poster: UrlToImage
+    let poster: UrlToImage?
     let year: Int
     let genres: [GenreOrCountryOrCinemaPlatform]
     let countries: [GenreOrCountryOrCinemaPlatform]
@@ -39,7 +39,7 @@ struct MovieServerModel: ResponseType {
         guard let film = MovieServerModel.database.add(Film.self) else { return nil }
         film.id = Int64(id)
         film.name = name
-        film.poster = poster.url
+        film.poster = poster?.url
         film.isFavorite = false
         film.watchability = isOnline
         film.genres = countriesAndGenresString
