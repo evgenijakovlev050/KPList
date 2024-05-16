@@ -13,10 +13,10 @@ final class SearchConfigurator: SearchConfiguratorProtocol {
     static func configure(withView view: SearchViewController) {
         let presenter = SearchPresenter(with: view)
         let interactor = SearchInteractor(with: presenter)
-        //let router = SearchRouter(with: view)
+        let router = SearchRouter(with: view)
         
         view.presenter = presenter
         presenter.interactor = interactor
-        //presenter.router = router
+        presenter.router = router
     }
 }

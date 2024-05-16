@@ -36,7 +36,7 @@ protocol HomeInfoInteractorInputProtocol: FavoriteStatusProtocol {
 /// InteractorOutput (Presenter confroms, Interactor contains)
 protocol HomeInfoInteractorOutputProtocol: AnyObject {
     func dataDidReceive(with dataStore: HomeInfoDataStore)
-    func favoritesDidUpdate(with movies: [Film])
+    func favoritesDidUpdate(with films: [Film])
 }
 
 /// RouterInput (Router conforms, Presenter contains)

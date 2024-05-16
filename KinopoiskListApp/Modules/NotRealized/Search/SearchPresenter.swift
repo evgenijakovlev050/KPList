@@ -6,13 +6,7 @@
 //  
 //
 
-import Foundation
-
 final class SearchPresenter: PresenterToViewSearchProtocol {
-    func didTapCell(at index: Int) {
-        print("lkclsmlds")
-    }
-    
     // MARK: Properties
     private weak var view: (ViewToPresenterSearchProtocol)?
     var interactor: PresenterToInteractorSearchProtocol!
@@ -38,15 +32,21 @@ final class SearchPresenter: PresenterToViewSearchProtocol {
     func searchStarted(with title: String) {
         interactor.fetchData(with: title)
     }
+    
+    func didTapCell(at index: Int) {
+        router.presentMovieDetail(with: section.movieItems[index])
+    }
 }
 
 // MARK: - Extensions - InteractorToPresenterSearchProtocol
 extension SearchPresenter: InteractorToPresenterSearchProtocol {
-    func didReceiveData(with films: [Film]) {
+    func didReceiveData(with movies: [MovieServerModel]) {
         section.movieItems.removeAll()
-        films.forEach {
-            section.movieItems.append(CellViewModel(film: $0))
-            print($0.name)
+        movies.forEach { movie in
+            if !movie.name.isEmpty && movie.poster?.url != nil {
+                section.movieItems.append(CellViewModel(movie: movie))
+                print(movie.name)
+            }
         }
         view?.reloadData(with: section)
     }

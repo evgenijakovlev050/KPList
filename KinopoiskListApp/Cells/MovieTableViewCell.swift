@@ -163,20 +163,25 @@ class MovieTableViewCell: UITableViewCell, CellModelRepresanteble {
         guard let viewModel = viewModel as? CellViewModel else { return }
         let processor = DownsamplingImageProcessor(size: CGSize(width: 55, height: mainStackView.bounds.height))
         movieImageView.kf.indicatorType = .activity
-        movieImageView.kf.setImage(
-            with: URL(string: viewModel.imageUrl ?? ""),
-            options: [
-                .processor(processor),
-                .scaleFactor(UIScreen.main.scale),
-                .transition(.fade(1)),
-                .cacheOriginalImage
-            ])
-        guard let film = viewModel.film else { return }
-        rUNameLabel.text = film.name
-        periodLabel.text = film.year
-        countryAndGenreLabel.text = film.genres
-        watchOnlineButton.isHidden = !film.watchability
-        emptyView.isHidden = false//!watchOnlineButton.isHidden
-        favoriteImageView.isHidden = !film.isFavorite
+        if let imageUrl = viewModel.imageUrl {
+            movieImageView.kf.setImage(
+                with: URL(string: imageUrl),
+                options: [
+                    .processor(processor),
+                    .scaleFactor(UIScreen.main.scale),
+                    .transition(.fade(1)),
+                    .cacheOriginalImage
+                ])
+        } else {
+            movieImageView.image = UIImage(systemName: "photo")
+            movieImageView.tintColor = .lightGray
+        }
+        guard let movie = viewModel.movie else { return }
+        rUNameLabel.text = movie.name
+        periodLabel.text = String(movie.year)
+        countryAndGenreLabel.text = movie.countriesAndGenresString
+        watchOnlineButton.isHidden = !movie.isOnline
+        emptyView.isHidden = false
+        favoriteImageView.isHidden = !viewModel.favoriteStatus
     }
 }

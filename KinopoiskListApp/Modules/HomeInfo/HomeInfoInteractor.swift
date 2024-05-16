@@ -87,7 +87,7 @@ final class HomeInfoInteractor: HomeInfoInteractorInputProtocol {
         print("Notify starting...")
         dispatchGroup.notify(queue: .main) { [unowned self] in
             dataStore.categoryList = StorageManager.shared.getCategories()
-            storangeManager.fetchFavorites().forEach { dataStore.movies.append($0) }
+            storangeManager.fetchFavorites().forEach { dataStore.films.append($0) }
             presenter.dataDidReceive(with: dataStore)
             print(Date().timeIntervalSince(startDate))
             print("Notify finishing...")

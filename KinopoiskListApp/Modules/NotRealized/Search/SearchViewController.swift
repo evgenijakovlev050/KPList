@@ -15,15 +15,13 @@ final class SearchViewController: UITableViewController {
     // MARK: - Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupTableView()
-    }
-    
-    private func setupTableView() {
-        //tableView = UITableView(frame: view.bounds)
-        //tableView.tableHeaderView = searchController.searchBar
         tableView.register(MovieTableViewCell.self)
         tableView.rowHeight = 100
     }
+    
+//    override func viewWillDisappear(_ animated: Bool) {
+//        <#code#>
+//    }
 }
 
 // MARK: - Extensions - ViewToPresenterSearchProtocol
@@ -50,7 +48,7 @@ extension SearchViewController {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //presenter.didTapCell(at: indexPath.row)
+        presenter.didTapCell(at: indexPath.row)
     }
 }
 
@@ -67,6 +65,9 @@ extension SearchViewController: UISearchBarDelegate, UISearchResultsUpdating {
         print("search started")
         if let title = searchController.searchBar.text, !title.isEmpty {
             presenter.searchStarted(with: title)
+        } else {
+            sectionViewModel.movieItems.removeAll()
+            tableView.reloadData()
         }
     }
     
@@ -74,5 +75,17 @@ extension SearchViewController: UISearchBarDelegate, UISearchResultsUpdating {
         print("search beagn")
         //presenter.searchStarted(with: "")
         return true
+    }
+}
+
+// MARK: - Extensions - UpdateFavoriteStatusDelegate
+extension SearchViewController: UpdateFavoriteStatusDelegate {
+    func modalClosed() {
+        guard let indexPath = tableView.indexPathForSelectedRow else { return }
+        if presenter.wasAnyStatusChanged {
+            tableView.reloadRows(at: [indexPath], with: .automatic)
+        } else {
+            tableView.deselectRow(at: indexPath, animated: false)
+        }
     }
 }

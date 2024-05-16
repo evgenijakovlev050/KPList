@@ -46,9 +46,8 @@ extension MoviesListPresenter: InteractorToPresenterMoviesListProtocol {
         view?.reloadHeader(with: title)
     }
     
-    func didReceiveData(with films: [Film], and kpList: KPList) {
-        section.categoryName = kpList.name
-        films.forEach { section.movieItems.append(CellViewModel(film: $0)) }
+    func didReceiveData(with movies: [MovieServerModel]) {
+        movies.forEach { section.movieItems.append(CellViewModel(movie: $0)) }
         view?.reloadData(with: section)
     }
 }

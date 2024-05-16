@@ -37,17 +37,21 @@ final class CellViewModel: CellViewModelProtocol {
     var person: Person?
     var kpList: KPList?
     var film: Film?
+    var movie: MovieServerModel?
     private var category: String?
     
     ///Detect which kind of section is (facts or categories)
     var isFact: Bool
     
     var favoriteStatus: Bool {
-        film?.isFavorite ?? false
+        if storageManager.checkIfItemExist(id: id) {
+            return true
+        }
+        return false
     }
     
     var watchedStatus: Bool {
-        film?.isWatched ?? false
+        storageManager.wasMovieWatched(by: String(id))
     }
     
     var id: Int {
@@ -55,6 +59,8 @@ final class CellViewModel: CellViewModelProtocol {
             return person.id
         } else if let film = film {
             return Int(film.id)
+        } else if let movie = movie {
+            return movie.id
         }
         fatalError("no model exists")
     }
@@ -66,6 +72,8 @@ final class CellViewModel: CellViewModelProtocol {
             return kpList.name
         } else if let film = film {
             return film.name ?? ""
+        } else if let movie = movie {
+            return movie.name
         }
         return category ?? ""
     }
@@ -77,6 +85,8 @@ final class CellViewModel: CellViewModelProtocol {
             return kpList.cover.url
         } else if let film = film {
             return film.poster
+        } else if let movie = movie {
+            return movie.poster?.url
         }
         return nil
     }
@@ -92,6 +102,7 @@ final class CellViewModel: CellViewModelProtocol {
         self.kpList = kpList
         self.person = person
         self.category = category
+        self.movie = movie
         self.film = film
         self.isFact = isFact
     }
@@ -99,16 +110,17 @@ final class CellViewModel: CellViewModelProtocol {
     // MARK: - Favorite status of film was changed
     func setFavoriteStatus() {
         storageManager.wasAnyStatusChanged = true
-        guard let film = film else { return }
-        film.isFavorite.toggle()
-        storageManager.saveContext()
+        
+        if favoriteStatus {
+            storageManager.deleteFilmById(by: Int64(id))
+        } else {
+            movie?.store()
+        }
     }
     
     // MARK: - Watched status of film was changed
     func setWatchedStatus() {
-        guard let film = film else { return }
-        film.isWatched.toggle()
-        storageManager.saveContext()
+        storageManager.setMovieWatched(with: String(id))
     }
 }
 

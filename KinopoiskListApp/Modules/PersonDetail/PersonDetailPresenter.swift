@@ -30,14 +30,14 @@ final class PersonDetailPresenter: PresenterToViewPersonDetailProtocol {
 
 extension PersonDetailPresenter: InteractorToPresenterPersonDetailProtocol {
     // MARK: - Adding Data To Store In ViewModel
-    func didReceiveData(with films: [Film], and person: Person) {
+    func didReceiveData(with movies: [MovieServerModel], and person: Person) {
         section.singlePerson = CellViewModel(person: person)
         
         // Sorting by chars number in name
-        films.sorted(by: { lhs, rhs in
-            guard let lhsName = lhs.name, let rhsName = rhs.name else { return false }
-            return lhsName.count >= rhsName.count
-        }).forEach { section.movieItems.append(CellViewModel(film: $0)) }
+        movies.sorted(by: { lhs, rhs in
+            //guard let lhsName = lhs.name, let rhsName = rhs.name else { return false }
+            return lhs.name.count >= rhs.name.count
+        }).forEach { section.movieItems.append(CellViewModel(movie: $0)) }
         
         person.facts.forEach { section.categoryItems.append(CellViewModel(category: $0.value, isFact: true))}
         

@@ -29,7 +29,7 @@ protocol PresenterToInteractorPersonDetailProtocol: AnyObject {
 
 /// InteractorOutput (Presenter confroms, Interactor contains)
 protocol InteractorToPresenterPersonDetailProtocol: AnyObject {
-    func didReceiveData(with films: [Film], and person: Person)
+    func didReceiveData(with movies: [MovieServerModel], and person: Person)
 }
 
 

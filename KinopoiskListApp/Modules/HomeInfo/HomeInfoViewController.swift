@@ -41,14 +41,19 @@ final class HomeInfoViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        if presenter.wasAnyStatusChanged {
-            presenter.updateFavoriteMovies()
-        }
+        updateFavoritesSection()
     }
 }
 
 // MARK: - Extensions - Private Methodds
 extension HomeInfoViewController {
+    // MARK: - Adding Favorites If Needed
+    private func updateFavoritesSection() {
+        if presenter.wasAnyStatusChanged {
+            presenter.updateFavoriteMovies()
+        }
+    }
+    
     // MARK: - Setup the Collection View
     private func setupCollectionView() {
         collectionView = UICollectionView(
@@ -305,24 +310,14 @@ extension HomeInfoViewController: UpdateFavoriteStatusDelegate {
     }
 }
 
-//// MARK: - Extensions - UISearchBarDelegate
-//extension HomeInfoViewController: UISearchBarDelegate {
-//    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-//        print("scope selection started")
-//    }
-//}
-//
-//// MARK: - Extensions - UISearchResultsUpdating
-//extension HomeInfoViewController: UISearchResultsUpdating {
-//    func updateSearchResults(for searchController: UISearchController) {
-//        print("search started")
-//    }
-//}
-
 // MARK: - Extensions - UISearchControllerDelegate
 extension HomeInfoViewController: UISearchControllerDelegate {
     func willPresentSearchController(_ searchController: UISearchController) {
         print("searchResultsVC will be presented")
         SearchConfigurator.configure(withView: searchVC)
+    }
+    
+    func didDismissSearchController(_ searchController: UISearchController) {
+        updateFavoritesSection()
     }
 }

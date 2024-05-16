@@ -31,16 +31,16 @@ final class MoviesListInteractor: PresenterToInteractorMoviesListProtocol {
         presenter.setHeader(with: kpList.name)
     }
     
-    func fetchData() {
+    func fetchDatasdc() {
         StorageManager.shared.fetchData(
             predicate: NSPredicate(format: "slug == %@", argumentArray: [kpList.slug])
         ) { [unowned self] result in
             switch result {
             case .success(let films):
                 if films.isEmpty {
-                    fetchFromNetwork()
+                    //fetchFromNetwork()
                 } else {
-                    presenter.didReceiveData(with: films, and: kpList)
+                    //presenter.didReceiveData(with: films, and: kpList)
                 }
             case .failure(let error):
                 print(error)
@@ -48,7 +48,7 @@ final class MoviesListInteractor: PresenterToInteractorMoviesListProtocol {
         }
     }
     
-    func fetchFromNetwork() {
+    func fetchData() {
         NetworkingManager.shared.fetchDataFaster(
             type: MovieServerModel.self,
             parameters: [
@@ -61,11 +61,12 @@ final class MoviesListInteractor: PresenterToInteractorMoviesListProtocol {
                 "notNullFields": ["poster.url"],
                 "lists" : [kpList.slug]
             ]
-        ) { result in
+        ) { [unowned self] result in
             switch result {
             case .success(let value):
-                value.forEach { $0.store(with: self.kpList.slug) }
-                self.fetchData()
+                //value.forEach { $0.store(with: self.kpList.slug) }
+                //self.fetchData()
+                presenter.didReceiveData(with: value)
             case .failure(let error):
                 print(error)
             }

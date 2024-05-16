@@ -28,7 +28,7 @@ protocol PresenterToInteractorSearchProtocol: FavoriteStatusProtocol {
 
 /// InteractorOutputProtocol (Presenter conforms, Interactor contains)
 protocol InteractorToPresenterSearchProtocol: AnyObject {
-    func didReceiveData(with films: [Film])
+    func didReceiveData(with movies: [MovieServerModel])
 }
 
 /// RouterInputProtocol (Router conforms, Presenter contains)

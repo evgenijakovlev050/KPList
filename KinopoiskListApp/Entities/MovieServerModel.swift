@@ -29,14 +29,39 @@ struct MovieServerModel: ResponseType {
             .isEmpty
     }
     
+    enum CodingKeys: CodingKey {
+        case id
+        case name
+        case poster
+        case year
+        case genres
+        case countries
+        case watchability
+    }
+    
+    init(from decoder: Decoder) throws {
+        let container = try decoder.container(keyedBy: CodingKeys.self)
+        self.id = try container.decode(Int.self, forKey: .id)
+        self.name = try container.decode(String.self, forKey: .name)
+        if let poster = try? container.decodeIfPresent(UrlToImage.self, forKey: .poster) {
+            self.poster = poster
+        } else {
+            self.poster = nil
+        }
+        self.year = try container.decode(Int.self, forKey: .year)
+        self.genres = try container.decode([GenreOrCountryOrCinemaPlatform].self, forKey: .genres)
+        self.countries = try container.decode([GenreOrCountryOrCinemaPlatform].self, forKey: .countries)
+        self.watchability = try container.decodeIfPresent(Watchability.self, forKey: .watchability)
+    }
+    
     func convertArrayToString(from array: [GenreOrCountryOrCinemaPlatform]) -> String {
         array.map { $0.name }
             .joined(separator: ", ")
     }
     
     // Core Data Usage
-    func store(with kpListSlug: String = "", personId: Int? = nil, title: String = "") -> Film? {
-        guard let film = MovieServerModel.database.add(Film.self) else { return nil }
+    func store(with kpListSlug: String = "", personId: Int? = nil, title: String = "") {
+        guard let film = MovieServerModel.database.add(Film.self) else { return }
         film.id = Int64(id)
         film.name = name
         film.poster = poster?.url
@@ -47,11 +72,12 @@ struct MovieServerModel: ResponseType {
         film.year = String(year)
         film.searchTitle = title
         film.isWatched = false
+        film.isFavorite = true
         if let personId = personId {
             film.personId = Int64(personId)
         }
         MovieServerModel.database.saveContext()
-        return film
+        //return film
     }
 }
 

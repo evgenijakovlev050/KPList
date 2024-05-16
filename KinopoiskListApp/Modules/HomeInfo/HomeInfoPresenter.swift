@@ -11,7 +11,7 @@ struct HomeInfoDataStore {
     var kpLists: [KPList] = []
     var persons: [Person] = []
     var categoryList: [String] = []
-    var movies: [Film] = []
+    var films: [Film] = []
     
     func getBirthdayPersons() -> [Person] {
         return persons.filter { $0.thisMonthBirth }
@@ -78,16 +78,16 @@ extension HomeInfoPresenter: HomeInfoInteractorOutputProtocol {
             .forEach { section.categoryItems.append(CellViewModel(category: $0)) }
         dataStore.getBirthdayPersons()
             .forEach { section.personItems.append(CellViewModel(person: $0)) }
-        dataStore.movies
+        dataStore.films
             .forEach { section.movieItems.append(CellViewModel(film: $0)) }
         view.reloadData(section: section)
     }
     
-    func favoritesDidUpdate(with movies: [Film]) {
+    func favoritesDidUpdate(with films: [Film]) {
         section.movieItems.removeAll()
         
-        if !movies.isEmpty {
-            movies.forEach { movie in
+        if !films.isEmpty {
+            films.forEach { movie in
                 section.movieItems.append(CellViewModel(film: movie))
             }
         }

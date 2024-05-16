@@ -18,7 +18,7 @@ final class PersonDetailInteractor: PresenterToInteractorPersonDetailProtocol {
         self.person = person
     }
     
-    func fetchFromNetwork() {
+    func fetchData() {
         NetworkingManager.shared.fetchDataFaster(
             type: MovieServerModel.self,
             parameters: [
@@ -30,24 +30,23 @@ final class PersonDetailInteractor: PresenterToInteractorPersonDetailProtocol {
             switch result {
             case .success(let value):
                 guard let self = self else { return }
-                value.forEach { $0.store(personId: self.person.id) }
-                fetchData()
+                presenter.didReceiveData(with: value, and: person)
             case .failure(let error):
                 print(error)
             }
         }
     }
     
-    func fetchData() {
+    func fetchDatacdf() {
         StorageManager.shared.fetchData(
             predicate: NSPredicate(format: "personId == %@", argumentArray: [person.id])
         ) { result in
             switch result {
             case .success(let films):
                 if films.isEmpty {
-                    fetchFromNetwork()
+                    //fetchFromNetwork()
                 } else {
-                    presenter.didReceiveData(with: films, and: person)
+                    //presenter.didReceiveData(with: films, and: person)
                 }
             case .failure(let error):
                 print(error)

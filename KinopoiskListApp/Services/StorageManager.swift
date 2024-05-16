@@ -36,6 +36,15 @@ final class StorageManager {
     private init() {
         viewContext = persistentContainer.viewContext
     }
+    
+    // MARK: - UserDefaults Operations
+    func wasMovieWatched(by id: String) -> Bool {
+        UserDefaults.standard.bool(forKey: id)
+    }
+    
+    func setMovieWatched(with id: String) {
+        UserDefaults.standard.set(!wasMovieWatched(by: id), forKey: id)
+    }
 
     // MARK: - CRUD
     func add<T: NSManagedObject>(_ type: T.Type) -> T? {
@@ -65,17 +74,15 @@ final class StorageManager {
         saveContext()
     }
     
-    func deleteFilmById(by id: Int64) -> Film? {
+    func deleteFilmById(by id: Int64) {
         let fetchRequest = Film.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "id == %@", argumentArray: [id])
+        fetchRequest.predicate = NSPredicate(format: "id == %d" , id)//NSPredicate(format: "id == %@", argumentArray: [id])
         do {
             let films = try viewContext.fetch(fetchRequest)
             films.forEach { delete($0) }
-            return films.first
         } catch(let error) {
             print(error)
         }
-        return nil
     }
     
     func delete(_ film: Film) {
@@ -179,4 +186,6 @@ final class StorageManager {
             "Премии"
         ]
     }
+    
+    
 }

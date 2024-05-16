@@ -106,8 +106,15 @@ extension MovieDetailViewController {
                 break
             }
         }
-        ruNameLabel.text = viewModel.film?.name
-        periodLabel.text = viewModel.film?.year
+        
+        if let movie = viewModel.movie {
+            ruNameLabel.text = movie.name
+            periodLabel.text = String(movie.year)
+        } else if let film = viewModel.film {
+            ruNameLabel.text = film.name
+            periodLabel.text = film.year
+        }
+        
     }
 }
 

@@ -30,7 +30,7 @@ protocol PresenterToInteractorMoviesListProtocol: FavoriteStatusProtocol {
 
 /// InteractorOutputProtocol (Presenter conforms, Interactor contains)
 protocol InteractorToPresenterMoviesListProtocol: AnyObject {
-    func didReceiveData(with films: [Film], and kpList: KPList)
+    func didReceiveData(with movies: [MovieServerModel])
     func setHeader(with title: String)
 }
 
