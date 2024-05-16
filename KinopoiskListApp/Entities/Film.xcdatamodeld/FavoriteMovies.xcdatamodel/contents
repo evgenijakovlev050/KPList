@@ -12,5 +12,9 @@
         <attribute name="slug" optional="YES" attributeType="String"/>
         <attribute name="watchability" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="year" optional="YES" attributeType="String"/>
+        <relationship name="searchTitles" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SearchTitle"/>
+    </entity>
+    <entity name="SearchTitle" representedClassName="SearchTitle" syncable="YES" codeGenerationType="class">
+        <attribute name="title" optional="YES" attributeType="String"/>
     </entity>
 </model>

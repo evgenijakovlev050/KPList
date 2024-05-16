@@ -73,11 +73,11 @@ struct MovieServerModel: ResponseType {
         film.searchTitle = title
         film.isWatched = false
         film.isFavorite = true
+        film.searchTitles = ["cdscs"]
         if let personId = personId {
             film.personId = Int64(personId)
         }
         MovieServerModel.database.saveContext()
-        //return film
     }
 }
 

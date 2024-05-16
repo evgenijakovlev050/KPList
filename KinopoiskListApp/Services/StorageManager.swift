@@ -76,7 +76,7 @@ final class StorageManager {
     
     func deleteFilmById(by id: Int64) {
         let fetchRequest = Film.fetchRequest()
-        fetchRequest.predicate = NSPredicate(format: "id == %d" , id)//NSPredicate(format: "id == %@", argumentArray: [id])
+        fetchRequest.predicate = NSPredicate(format: "id == %d" , id)
         do {
             let films = try viewContext.fetch(fetchRequest)
             films.forEach { delete($0) }

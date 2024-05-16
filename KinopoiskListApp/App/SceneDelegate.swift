@@ -16,9 +16,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         window = UIWindow(windowScene: windowScene)
         window?.makeKeyAndVisible()
         window?.rootViewController = AppCoordinator.createTabBarController()
-        StorageManager.shared.deleteAllData("Film")
+        //StorageManager.shared.deleteAllData("Film")
         if let bundleID = Bundle.main.bundleIdentifier {
-            UserDefaults.standard.removePersistentDomain(forName: bundleID)
+            //UserDefaults.standard.removePersistentDomain(forName: bundleID)
         }
     }
 
