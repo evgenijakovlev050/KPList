@@ -43,6 +43,11 @@
 		4AA6672E2BAB2E0D00F093FF /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA6672D2BAB2E0D00F093FF /* Extensions.swift */; };
 		4AA667312BAC30DB00F093FF /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 4AA667302BAC30DB00F093FF /* Kingfisher */; };
 		4AA667332BAC901A00F093FF /* KPList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA667322BAC901A00F093FF /* KPList.swift */; };
+		4AA7E0F52BF61AC4005455B1 /* SearchInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7E0F42BF61AC4005455B1 /* SearchInteractor.swift */; };
+		4AA7E0F82BF61AF3005455B1 /* SearchContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7E0F62BF61AF3005455B1 /* SearchContract.swift */; };
+		4AA7E0F92BF61AF3005455B1 /* SearchConfigurator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7E0F72BF61AF3005455B1 /* SearchConfigurator.swift */; };
+		4AA7E0FC2BF61B11005455B1 /* SearchRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7E0FA2BF61B11005455B1 /* SearchRouter.swift */; };
+		4AA7E0FD2BF61B11005455B1 /* SearchPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AA7E0FB2BF61B11005455B1 /* SearchPresenter.swift */; };
 		4AAC06F02BCD7C2300858F2F /* HomeInfoContract.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAC06EF2BCD7C2300858F2F /* HomeInfoContract.swift */; };
 		4AAC06F22BCD82F600858F2F /* HomeInfoPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAC06F12BCD82F600858F2F /* HomeInfoPresenter.swift */; };
 		4AAC06F42BCD878000858F2F /* HomeInfoInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AAC06F32BCD878000858F2F /* HomeInfoInteractor.swift */; };
@@ -99,6 +104,11 @@
 		4AA667282BAAF9B800F093FF /* KPListCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KPListCollectionViewCell.swift; sourceTree = "<group>"; };
 		4AA6672D2BAB2E0D00F093FF /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		4AA667322BAC901A00F093FF /* KPList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KPList.swift; sourceTree = "<group>"; };
+		4AA7E0F42BF61AC4005455B1 /* SearchInteractor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchInteractor.swift; sourceTree = "<group>"; };
+		4AA7E0F62BF61AF3005455B1 /* SearchContract.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchContract.swift; sourceTree = "<group>"; };
+		4AA7E0F72BF61AF3005455B1 /* SearchConfigurator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchConfigurator.swift; sourceTree = "<group>"; };
+		4AA7E0FA2BF61B11005455B1 /* SearchRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchRouter.swift; sourceTree = "<group>"; };
+		4AA7E0FB2BF61B11005455B1 /* SearchPresenter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SearchPresenter.swift; sourceTree = "<group>"; };
 		4AAC06EF2BCD7C2300858F2F /* HomeInfoContract.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInfoContract.swift; sourceTree = "<group>"; };
 		4AAC06F12BCD82F600858F2F /* HomeInfoPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInfoPresenter.swift; sourceTree = "<group>"; };
 		4AAC06F32BCD878000858F2F /* HomeInfoInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeInfoInteractor.swift; sourceTree = "<group>"; };
@@ -139,6 +149,11 @@
 			isa = PBXGroup;
 			children = (
 				4A2432D02BDFC7F400BC1872 /* SearchViewController.swift */,
+				4AA7E0FB2BF61B11005455B1 /* SearchPresenter.swift */,
+				4AA7E0FA2BF61B11005455B1 /* SearchRouter.swift */,
+				4AA7E0F72BF61AF3005455B1 /* SearchConfigurator.swift */,
+				4AA7E0F62BF61AF3005455B1 /* SearchContract.swift */,
+				4AA7E0F42BF61AC4005455B1 /* SearchInteractor.swift */,
 			);
 			path = Search;
 			sourceTree = "<group>";
@@ -456,6 +471,7 @@
 				4AA4984E2BD96C2600AA3BA0 /* StorageManager.swift in Sources */,
 				4AB893AE2BCFD6EA001E5CDB /* KPListsPresenter.swift in Sources */,
 				4A1703462BB1A9490012CF46 /* SectionHeaderView.swift in Sources */,
+				4AA7E0FD2BF61B11005455B1 /* SearchPresenter.swift in Sources */,
 				4AB893892BCEDB98001E5CDB /* ReuseIdentifier.swift in Sources */,
 				4A943F642BA48DF40019C505 /* ProfileViewController.swift in Sources */,
 				4AAC06F02BCD7C2300858F2F /* HomeInfoContract.swift in Sources */,
@@ -470,12 +486,16 @@
 				4AAC06F22BCD82F600858F2F /* HomeInfoPresenter.swift in Sources */,
 				4AB893CB2BD023C4001E5CDB /* PersonDetailConfigurator.swift in Sources */,
 				4AB893C62BD0212E001E5CDB /* PersonDetailContract.swift in Sources */,
+				4AA7E0F52BF61AC4005455B1 /* SearchInteractor.swift in Sources */,
 				4A7AE27E2BBD871800632F8A /* CellFactory.swift in Sources */,
 				4A9CF44D2BD16E430030307B /* MoviesListRouter.swift in Sources */,
 				4A9CF44B2BD16E430030307B /* MoviesListContract.swift in Sources */,
 				4AB893852BCEA96B001E5CDB /* HomeInfoRouter.swift in Sources */,
 				4A7AE27C2BBB126F00632F8A /* MoviesListViewController.swift in Sources */,
+				4AA7E0F92BF61AF3005455B1 /* SearchConfigurator.swift in Sources */,
+				4AA7E0F82BF61AF3005455B1 /* SearchContract.swift in Sources */,
 				4A2432D12BDFC7F400BC1872 /* SearchViewController.swift in Sources */,
+				4AA7E0FC2BF61B11005455B1 /* SearchRouter.swift in Sources */,
 				4AA498512BDA4A2900AA3BA0 /* Film.xcdatamodeld in Sources */,
 				4AB893872BCEAE90001E5CDB /* HomeInfoConfigurator.swift in Sources */,
 				4AB893B32BCFE704001E5CDB /* KPListsRouter.swift in Sources */,

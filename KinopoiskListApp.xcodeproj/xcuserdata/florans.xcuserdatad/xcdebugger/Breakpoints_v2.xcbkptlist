@@ -20,5 +20,196 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "EB0F86AB-42D4-4F96-A244-31C80FB5A2DD"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KinopoiskListApp/Modules/NotRealized/Search/SearchViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "69"
+            endingLineNumber = "69"
+            landmarkName = "updateSearchResults(for:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "EB0F86AB-42D4-4F96-A244-31C80FB5A2DD - b5614705372f4c7c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KinopoiskListApp.SearchViewController.updateSearchResults(for: __C.UISearchController) -&gt; ()"
+                  moduleName = "KinopoiskListApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/florans/Desktop/MainCinemaApp/KinopoiskListApp/Modules/NotRealized/Search/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "269">
+               </Location>
+               <Location
+                  uuid = "EB0F86AB-42D4-4F96-A244-31C80FB5A2DD - b5614705372f4c7c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KinopoiskListApp.SearchViewController.updateSearchResults(for: __C.UISearchController) -&gt; ()"
+                  moduleName = "KinopoiskListApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/florans/Desktop/MainCinemaApp/KinopoiskListApp/Modules/NotRealized/Search/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "573">
+               </Location>
+               <Location
+                  uuid = "EB0F86AB-42D4-4F96-A244-31C80FB5A2DD - b5614705372f4c7c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KinopoiskListApp.SearchViewController.updateSearchResults(for: __C.UISearchController) -&gt; ()"
+                  moduleName = "KinopoiskListApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/florans/Desktop/MainCinemaApp/KinopoiskListApp/Modules/NotRealized/Search/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "69"
+                  endingLineNumber = "69"
+                  offsetFromSymbolStart = "869">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0B586F71-2D63-4ED3-97B7-B9D8CEDA8C49"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KinopoiskListApp/Modules/HomeInfo/HomeInfoViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "326"
+            endingLineNumber = "326"
+            landmarkName = "willPresentSearchController(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D34395B6-F269-4E30-83F2-8EFDCFDD770F"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KinopoiskListApp/Modules/NotRealized/Search/SearchViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "67"
+            endingLineNumber = "67"
+            landmarkName = "updateSearchResults(for:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D34395B6-F269-4E30-83F2-8EFDCFDD770F - b5614705372f4c5d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KinopoiskListApp.SearchViewController.updateSearchResults(for: __C.UISearchController) -&gt; ()"
+                  moduleName = "KinopoiskListApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/florans/Desktop/MainCinemaApp/KinopoiskListApp/Modules/NotRealized/Search/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "68"
+                  endingLineNumber = "68"
+                  offsetFromSymbolStart = "116">
+               </Location>
+               <Location
+                  uuid = "D34395B6-F269-4E30-83F2-8EFDCFDD770F - b5614705372f4cb2"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KinopoiskListApp.SearchViewController.updateSearchResults(for: __C.UISearchController) -&gt; ()"
+                  moduleName = "KinopoiskListApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/florans/Desktop/MainCinemaApp/KinopoiskListApp/Modules/NotRealized/Search/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "67"
+                  endingLineNumber = "67"
+                  offsetFromSymbolStart = "116">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DC367DED-D023-43B9-8432-37C6EDD24C21"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KinopoiskListApp/Modules/NotRealized/Search/SearchViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "searchBarShouldBeginEditing(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "DC367DED-D023-43B9-8432-37C6EDD24C21 - 4fa2811c21e0da3d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KinopoiskListApp.SearchViewController.searchBarShouldBeginEditing(__C.UISearchBar) -&gt; Swift.Bool"
+                  moduleName = "KinopoiskListApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/florans/Desktop/MainCinemaApp/KinopoiskListApp/Modules/NotRealized/Search/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "75"
+                  endingLineNumber = "75"
+                  offsetFromSymbolStart = "65">
+               </Location>
+               <Location
+                  uuid = "DC367DED-D023-43B9-8432-37C6EDD24C21 - 4fa2811c21e0da1c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "KinopoiskListApp.SearchViewController.searchBarShouldBeginEditing(__C.UISearchBar) -&gt; Swift.Bool"
+                  moduleName = "KinopoiskListApp"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/florans/Desktop/MainCinemaApp/KinopoiskListApp/Modules/NotRealized/Search/SearchViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "74"
+                  endingLineNumber = "74"
+                  offsetFromSymbolStart = "65">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "20AF030B-9F78-4FCA-B54D-2B1599759C10"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "KinopoiskListApp/Modules/NotRealized/Search/SearchInteractor.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "28"
+            endingLineNumber = "28"
+            landmarkName = "fetchData(with:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

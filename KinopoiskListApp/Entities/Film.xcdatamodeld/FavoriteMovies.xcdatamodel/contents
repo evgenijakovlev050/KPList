@@ -8,6 +8,7 @@
         <attribute name="name" attributeType="String"/>
         <attribute name="personId" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <attribute name="poster" attributeType="String"/>
+        <attribute name="searchTitle" optional="YES" attributeType="String"/>
         <attribute name="slug" optional="YES" attributeType="String"/>
         <attribute name="watchability" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="year" optional="YES" attributeType="String"/>

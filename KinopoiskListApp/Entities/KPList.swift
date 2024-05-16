@@ -11,5 +11,5 @@ struct KPList: ResponseType {
     let slug: String
     let cover: UrlToImage
     
-    static var type = "list?"
+    static var type = "list"
 }

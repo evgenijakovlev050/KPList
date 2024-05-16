@@ -28,10 +28,13 @@ final class NetworkingManager {
     // MARK: - Alamofire request
     func fetchDataFaster<T: ResponseType>(
         type: T.Type,
+        searchType: String = "",
         parameters: [String: [String]] = [:],
         completion: @escaping (Result<[T], AFError>) -> Void
     ) {
-        guard let url = URL(string: Links.baseUrl.rawValue + T.type) else { return }
+        guard let url = URL(
+            string: Links.baseUrl.rawValue +
+            T.type + searchType + "?") else { return }
         AF.request(
             url,
             parameters: parameters,

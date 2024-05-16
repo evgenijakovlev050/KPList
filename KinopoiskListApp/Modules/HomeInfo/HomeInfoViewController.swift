@@ -19,6 +19,7 @@ final class HomeInfoViewController: UIViewController {
     
     // SearchBar Properties
     private var searchController: UISearchController!
+    private var searchVC: SearchViewController!
     private var searchBarIsEmpty: Bool {
         guard let text = searchController.searchBar.text else { return false }
         return text.isEmpty
@@ -74,21 +75,45 @@ extension HomeInfoViewController {
     
     // MARK: - Setup the Search Controller and Scope Bar
     private func setupSearchController() {
-        searchController = UISearchController(searchResultsController: nil)
-        searchController.searchResultsUpdater = self
-        searchController.obscuresBackgroundDuringPresentation = false
-        searchController.hidesNavigationBarDuringPresentation = true
-        searchController.definesPresentationContext = true
-        searchController.searchBar.placeholder = "Фильмы, персоны, сериалы"
+        searchVC = SearchViewController()
         
-        navigationItem.searchController = searchController
-        navigationItem.hidesSearchBarWhenScrolling = false
-                
+        searchController = UISearchController(searchResultsController: searchVC)
+        searchController.searchResultsUpdater = searchVC
+        
+        // Show resultsVC after tapping search bar
+        searchController.showsSearchResultsController = true
+        
+        searchController.searchBar.autocapitalizationType = .none
+        
+        // Adding placeholder and scope
+        searchController.searchBar.searchTextField.placeholder = NSLocalizedString("Фильмы, персоны, сериалы", comment: "")
         searchController.searchBar.scopeButtonTitles = [
             "Все результаты",
             "Онлайн-кинотеатр"
         ]
-        searchController.searchBar.delegate = self
+        searchController.searchBar.returnKeyType = .done
+        
+        /** Place the search bar in the navigation bar and make it visible even while scroling */
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+
+        // Make the search bar hiding during presentation
+        searchController.hidesNavigationBarDuringPresentation = true
+
+        // Monitor when the search controller is presented and dismissed.
+        searchController.delegate = self
+        
+        // Monitor when the search button is tapped, and start/end editing.
+        searchController.searchBar.delegate = searchVC
+        
+        /** Specify that this view controller determines how the search controller is presented.
+            The search controller should be presented modally and match the physical size of this view controller.
+        */
+        definesPresentationContext = true
+        
+        //searchController.searchBar.placeholder = "Фильмы, персоны, сериалы"
+        //searchController.obscuresBackgroundDuringPresentation = false
+        //searchController.definesPresentationContext = true
     }
     
     // MARK: - Setup the Navigation Bar
@@ -280,13 +305,24 @@ extension HomeInfoViewController: UpdateFavoriteStatusDelegate {
     }
 }
 
-// MARK: - Extensions - UISearchBarDelegate, UISearchResultsUpdating
-extension HomeInfoViewController: UISearchBarDelegate, UISearchResultsUpdating {
-    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
-        print("scope selection started")
-    }
-    
-    func updateSearchResults(for searchController: UISearchController) {
-        print("search started")
+//// MARK: - Extensions - UISearchBarDelegate
+//extension HomeInfoViewController: UISearchBarDelegate {
+//    func searchBar(_ searchBar: UISearchBar, selectedScopeButtonIndexDidChange selectedScope: Int) {
+//        print("scope selection started")
+//    }
+//}
+//
+//// MARK: - Extensions - UISearchResultsUpdating
+//extension HomeInfoViewController: UISearchResultsUpdating {
+//    func updateSearchResults(for searchController: UISearchController) {
+//        print("search started")
+//    }
+//}
+
+// MARK: - Extensions - UISearchControllerDelegate
+extension HomeInfoViewController: UISearchControllerDelegate {
+    func willPresentSearchController(_ searchController: UISearchController) {
+        print("searchResultsVC will be presented")
+        SearchConfigurator.configure(withView: searchVC)
     }
 }

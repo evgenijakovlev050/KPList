@@ -164,7 +164,7 @@ final class StorageManager {
         do {
             let movies = try viewContext.fetch(fetchRequest)
             return movies.first
-        } catch let error {
+        } catch _ {
             return nil
         }
     }

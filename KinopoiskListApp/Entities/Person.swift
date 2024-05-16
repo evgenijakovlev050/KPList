@@ -56,7 +56,7 @@ struct Person: ResponseType {
         stringBirth == Date().formatString() && death == nil
     }
     
-    static var type = "person?"
+    static var type = "person"
     
     enum CodingKeys: CodingKey {
         case id

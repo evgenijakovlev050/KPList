@@ -14,7 +14,8 @@ struct MovieServerModel: ResponseType {
     let countries: [GenreOrCountryOrCinemaPlatform]
     let watchability: Watchability?
     
-    static var type = "movie?"
+    static var type = "movie"
+    static var searchType = "/search"
     static let database = StorageManager.shared
     
     var countriesAndGenresString: String {
@@ -34,8 +35,8 @@ struct MovieServerModel: ResponseType {
     }
     
     // Core Data Usage
-    func store(with kpListSlug: String = "", personId: Int? = nil) {
-        guard let film = MovieServerModel.database.add(Film.self) else { return }
+    func store(with kpListSlug: String = "", personId: Int? = nil, title: String = "") -> Film? {
+        guard let film = MovieServerModel.database.add(Film.self) else { return nil }
         film.id = Int64(id)
         film.name = name
         film.poster = poster.url
@@ -44,11 +45,13 @@ struct MovieServerModel: ResponseType {
         film.genres = countriesAndGenresString
         film.slug = kpListSlug
         film.year = String(year)
+        film.searchTitle = title
         film.isWatched = false
         if let personId = personId {
             film.personId = Int64(personId)
         }
         MovieServerModel.database.saveContext()
+        return film
     }
 }
 
