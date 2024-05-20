@@ -11,3 +11,7 @@ This is an ios app on Swift built using Kinopisk design as an example and built 
 - Alamofire
 - Skeleton
 - Snapkit
+
+## Usage
+git clone
+use default branch -movie
