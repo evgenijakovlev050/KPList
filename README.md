@@ -17,8 +17,9 @@ git clone
 use default branch -movie
 
 ## Video
-https://github.com/evgenijakovlev050/KPList/assets/153649051/4d6422dd-b896-4001-8e46-36972c958b08
-https://github.com/evgenijakovlev050/KPList/assets/153649051/205ae4ae-0dd6-4f9a-a0e0-8ecac0b75fdd
+- https://github.com/evgenijakovlev050/KPList/assets/153649051/4d6422dd-b896-4001-8e46-36972c958b08
+
+- https://github.com/evgenijakovlev050/KPList/assets/153649051/205ae4ae-0dd6-4f9a-a0e0-8ecac0b75fdd
 
 
 
